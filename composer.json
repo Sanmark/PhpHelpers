@@ -1,0 +1,19 @@
+{
+    "name": "sanmark/php-helpers",
+    "description": "",
+    "authors": [
+        {
+            "name": "Sanmark",
+            "email": "work@thesanmark.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Sanmark\\PhpHelpers": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
