@@ -88,7 +88,7 @@ class ArrayHelper
 	{
 		foreach ( $array as $element )
 		{
-			if ( \NullHelper::isNullEmptyOrWhitespace ( $element ) )
+			if ( NullHelper::isNullEmptyOrWhitespace ( $element ) )
 			{
 				return FALSE ;
 			}
