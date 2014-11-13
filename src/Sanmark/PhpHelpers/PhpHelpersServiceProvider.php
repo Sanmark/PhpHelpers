@@ -15,8 +15,12 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 	{
 		$this->package('sanmark/php-helpers');
 
-		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$loader->alias('Sanmark\PhpHelpers\ArrayHelper', 'Sanmark\PhpHelpers\Facades\ArrayHelperFacade');
+		$ArrayHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
+		$DateTimeHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
+
+
+		$ArrayHelperLoader -> alias('Sanmark\PhpHelpers\ArrayHelper', 'Sanmark\PhpHelpers\Facades\ArrayHelperFacade');
+		$DateTimeHelperLoader -> alias('Sanmark\PhpHelpers\DateTimeHelper', 'Sanmark\PhpHelpers\Facades\DateTimeHelperFacade');
 	}
 
 	/**
@@ -29,6 +33,11 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 		$this->app['Sanmark\PhpHelpers\ArrayHelper'] = $this -> app -> share( function ($app)
 		{
 			return new Classes\ArrayHelper;
+		});
+
+		$this->app['Sanmark\PhpHelpers\DateTimeHelper'] = $this -> app -> share( function ($app)
+		{
+			return new Classes\DateTimeHelper;
 		});
 	}
 
