@@ -20,12 +20,14 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 		$NullHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
 		$StringHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
 		$NumberHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
+		$ObjectHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
 
 		$ArrayHelperLoader -> alias('Sanmark\PhpHelpers\ArrayHelper', 'Sanmark\PhpHelpers\Facades\ArrayHelperFacade');
 		$DateTimeHelperLoader -> alias('Sanmark\PhpHelpers\DateTimeHelper', 'Sanmark\PhpHelpers\Facades\DateTimeHelperFacade');
 		$NullHelperLoader -> alias('Sanmark\PhpHelpers\NullHelper', 'Sanmark\PhpHelpers\Facades\NullHelperFacade');
 		$StringHelperLoader -> alias('Sanmark\PhpHelpers\StringHelper', 'Sanmark\PhpHelpers\Facades\StringHelperFacade');
 		$NumberHelperLoader -> alias('Sanmark\PhpHelpers\NumberHelper', 'Sanmark\PhpHelpers\Facades\NumberHelperFacade');
+		$ObjectHelperLoader -> alias('Sanmark\PhpHelpers\ObjectHelper', 'Sanmark\PhpHelpers\Facades\ObjectHelperFacade');
 	}
 
 	/**
@@ -58,6 +60,11 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 		$this->app['Sanmark\PhpHelpers\NumberHelper'] = $this -> app -> share( function ($app)
 		{
 			return new Classes\NumberHelper;
+		});
+
+		$this->app['Sanmark\PhpHelpers\ObjectHelper'] = $this -> app -> share( function ($app)
+		{
+			return new Classes\ObjectHelper;
 		});
 	}
 
