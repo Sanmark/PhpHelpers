@@ -15,19 +15,14 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 	{
 		$this->package('sanmark/php-helpers');
 
-		$ArrayHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$DateTimeHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$NullHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$StringHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$NumberHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$ObjectHelperLoader = \Illuminate\Foundation\AliasLoader::getInstance();
+		$aliasLoader = \Illuminate\Foundation\AliasLoader::getInstance();
 
-		$ArrayHelperLoader -> alias('Sanmark\PhpHelpers\ArrayHelper', 'Sanmark\PhpHelpers\Facades\ArrayHelperFacade');
-		$DateTimeHelperLoader -> alias('Sanmark\PhpHelpers\DateTimeHelper', 'Sanmark\PhpHelpers\Facades\DateTimeHelperFacade');
-		$NullHelperLoader -> alias('Sanmark\PhpHelpers\NullHelper', 'Sanmark\PhpHelpers\Facades\NullHelperFacade');
-		$StringHelperLoader -> alias('Sanmark\PhpHelpers\StringHelper', 'Sanmark\PhpHelpers\Facades\StringHelperFacade');
-		$NumberHelperLoader -> alias('Sanmark\PhpHelpers\NumberHelper', 'Sanmark\PhpHelpers\Facades\NumberHelperFacade');
-		$ObjectHelperLoader -> alias('Sanmark\PhpHelpers\ObjectHelper', 'Sanmark\PhpHelpers\Facades\ObjectHelperFacade');
+		$aliasLoader -> alias('Sanmark\PhpHelpers\ArrayHelper', 'Sanmark\PhpHelpers\Facades\ArrayHelperFacade');
+		$aliasLoader -> alias('Sanmark\PhpHelpers\DateTimeHelper', 'Sanmark\PhpHelpers\Facades\DateTimeHelperFacade');
+		$aliasLoader -> alias('Sanmark\PhpHelpers\NullHelper', 'Sanmark\PhpHelpers\Facades\NullHelperFacade');
+		$aliasLoader -> alias('Sanmark\PhpHelpers\NumberHelper', 'Sanmark\PhpHelpers\Facades\NumberHelperFacade');
+		$aliasLoader -> alias('Sanmark\PhpHelpers\ObjectHelper', 'Sanmark\PhpHelpers\Facades\ObjectHelperFacade');
+		$aliasLoader -> alias('Sanmark\PhpHelpers\StringHelper', 'Sanmark\PhpHelpers\Facades\StringHelperFacade');
 	}
 
 	/**
@@ -52,11 +47,6 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 			return new Classes\NullHelper;
 		});
 
-		$this->app['Sanmark\PhpHelpers\StringHelper'] = $this -> app -> share( function ($app)
-		{
-			return new Classes\StringHelper;
-		});
-
 		$this->app['Sanmark\PhpHelpers\NumberHelper'] = $this -> app -> share( function ($app)
 		{
 			return new Classes\NumberHelper;
@@ -65,6 +55,11 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 		$this->app['Sanmark\PhpHelpers\ObjectHelper'] = $this -> app -> share( function ($app)
 		{
 			return new Classes\ObjectHelper;
+		});
+
+		$this->app['Sanmark\PhpHelpers\StringHelper'] = $this -> app -> share( function ($app)
+		{
+			return new Classes\StringHelper;
 		});
 	}
 
