@@ -5,7 +5,7 @@ namespace Sanmark\PhpHelpers\Classes;
 class ArrayHelper
 {
 
-	public static function getValueIfKeyExistsOrNull ( $array , $key )
+	public function getValueIfKeyExistsOrNull ( $array , $key )
 	{
 		if ( isset ( $array[ $key ] ) )
 		{
@@ -15,7 +15,7 @@ class ArrayHelper
 		return NULL ;
 	}
 
-	public static function getValuesIfKeysExist ( $values , $keys )
+	public function getValuesIfKeysExist ( $values , $keys )
 	{
 		$filteredValues = NULL ;
 
@@ -30,7 +30,7 @@ class ArrayHelper
 		return $filteredValues ;
 	}
 
-	public static function pruneEmptyElements ( $array )
+	public function pruneEmptyElements ( $array )
 	{
 		$prunedArray = NULL ;
 
@@ -45,7 +45,7 @@ class ArrayHelper
 		return $prunedArray ;
 	}
 
-	public static function AddSameKeyElements ( $firstArray , $secondArray )
+	public function AddSameKeyElements ( $firstArray , $secondArray )
 	{
 		$output = [ ] ;
 
@@ -71,7 +71,7 @@ class ArrayHelper
 		return $output ;
 	}
 
-	public static function areAllElementsEmpty ( $array )
+	public function areAllElementsEmpty ( $array )
 	{
 		foreach ( $array as $element )
 		{
@@ -84,7 +84,7 @@ class ArrayHelper
 		return TRUE ;
 	}
 
-	public static function areAllElementsFilled ( $array )
+	public function areAllElementsFilled ( $array )
 	{
 		foreach ( $array as $element )
 		{
@@ -97,11 +97,11 @@ class ArrayHelper
 		return TRUE ;
 	}
 
-	public static function hasAtLeastOneElementWithValue ( array $array , array $except = NULL )
+	public function hasAtLeastOneElementWithValue ( array $array , array $except = NULL )
 	{
 		if ( ! is_null ( $except ) )
 		{
-			$arrayWithoutExceptElements = self::without ( $array , $except ) ;
+			$arrayWithoutExceptElements = $this -> without ( $array , $except ) ;
 		} else
 		{
 			$arrayWithoutExceptElements = $array ;
@@ -118,7 +118,7 @@ class ArrayHelper
 		return FALSE ;
 	}
 
-	public static function without ( array $array , array $excepts )
+	public function without ( array $array , array $excepts )
 	{
 		foreach ( $excepts as $except )
 		{
@@ -128,29 +128,29 @@ class ArrayHelper
 		return $array ;
 	}
 
-	public static function withoutRecursive ( array $array , array $excepts )
+	public function withoutRecursive ( array $array , array $excepts )
 	{
-		$array = self::without ( $array , $excepts ) ;
+		$array = $this -> without ( $array , $excepts ) ;
 
 		foreach ( $array as $key => $value )
 		{
 			if ( is_array ( $value ) )
 			{
-				$array[ $key ] = self::withoutRecursive ( $value , $excepts ) ;
+				$array[ $key ] = $this -> withoutRecursive ( $value , $excepts ) ;
 			}
 		}
 
 		return $array ;
 	}
 
-	public static function hasAtLeastOneElementWithValueInAtLeastOneChildArrayRecursive ( array $array )
+	public function hasAtLeastOneElementWithValueInAtLeastOneChildArrayRecursive ( array $array )
 	{
 		foreach ( $array as $value )
 		{
 			if ( ! is_array ( $value ) && ! NullHelper::isNullEmptyOrWhitespace ( $value ) )
 			{
 				return TRUE ;
-			} elseif ( is_array ( $value ) && self::hasAtLeastOneElementWithValueInAtLeastOneChildArrayRecursive ( $value ) )
+			} elseif ( is_array ( $value ) && $this -> hasAtLeastOneElementWithValueInAtLeastOneChildArrayRecursive ( $value ) )
 			{
 				return TRUE ;
 			}
@@ -159,7 +159,7 @@ class ArrayHelper
 		return FALSE ;
 	}
 
-	public static function areAllElementsHasValue ( $array )
+	public function areAllElementsHasValue ( $array )
 	{
 		foreach ( $array as $element )
 		{
@@ -172,7 +172,7 @@ class ArrayHelper
 		return TRUE;
 	}
 
-	public static function removeWhiteSpacesInValuesRecursive ( $array )
+	public function removeWhiteSpacesInValuesRecursive ( $array )
 	{
 		$processedArray = [ ] ;
 
@@ -180,7 +180,7 @@ class ArrayHelper
 		{
 			if ( is_array ( $value ) )
 			{
-				$processedArray[ $key ] = self::removeWhiteSpacesInValuesRecursive ( $value ) ;
+				$processedArray[ $key ] = $this -> removeWhiteSpacesInValuesRecursive ( $value ) ;
 			} else
 			{
 				$processedArray[ $key ] = StringHelper::removeWhiteSpaces ( $value ) ;

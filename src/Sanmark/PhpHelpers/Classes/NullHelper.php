@@ -5,7 +5,7 @@ namespace Sanmark\PhpHelpers\Classes;
 class NullHelper
 {
 
-	public static function zeroIfNull ( $value )
+	public function zeroIfNull ( $value )
 	{
 		if ( is_null ( $value ) )
 		{
@@ -15,7 +15,7 @@ class NullHelper
 		return $value ;
 	}
 
-	public static function zeroIfEmptyString ( $string )
+	public function zeroIfEmptyString ( $string )
 	{
 		if ( $string == "" )
 		{
@@ -24,7 +24,7 @@ class NullHelper
 		return $string ;
 	}
 
-	public static function isNullEmptyOrWhitespace ( $value )
+	public function isNullEmptyOrWhitespace ( $value )
 	{
 		if ( is_null ( $value ) )
 		{
@@ -44,7 +44,7 @@ class NullHelper
 		return FALSE ;
 	}
 
-	public static function nullIfEmpty ( $value )
+	public function nullIfEmpty ( $value )
 	{
 		if ( empty ( $value ) )
 		{
@@ -54,9 +54,9 @@ class NullHelper
 		return $value ;
 	}
 
-	public static function ifNullEmptyOrWhitespace ( $valueOne , $valueTwo )
+	public function ifNullEmptyOrWhitespace ( $valueOne , $valueTwo )
 	{
-		if ( self::isNullEmptyOrWhitespace ( $valueOne ) )
+		if ( $this -> isNullEmptyOrWhitespace ( $valueOne ) )
 		{
 			return $valueTwo ;
 		}

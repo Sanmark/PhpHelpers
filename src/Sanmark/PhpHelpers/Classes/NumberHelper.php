@@ -5,7 +5,7 @@ namespace Sanmark\PhpHelpers\Classes;
 class NumberHelper
 {
 
-	public static function getMinimumAvailableNumberFromArray ( $array )
+	public function getMinimumAvailableNumberFromArray ( $array )
 	{
 		$filteredArray = array_filter ( $array , 'is_numeric' ) ;
 

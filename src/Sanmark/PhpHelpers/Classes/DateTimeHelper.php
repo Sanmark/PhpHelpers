@@ -5,7 +5,7 @@ namespace Sanmark\PhpHelpers\Classes;
 class DateTimeHelper
 {
 
-	public static function convertTextToFormattedDateTime ( $text , $format = "Y-m-d H:i:s" )
+	public function convertTextToFormattedDateTime ( $text , $format = "Y-m-d H:i:s" )
 	{
 		if ( ! NullHelper::isNullEmptyOrWhitespace ( $text ) )
 		{
@@ -18,7 +18,7 @@ class DateTimeHelper
 		return NULL ;
 	}
 
-	public static function dateTimeRefill ( $dateTimeForFormat )
+	public function dateTimeRefill ( $dateTimeForFormat )
 	{
 
 		$dateTime	 = preg_replace ( "/[A-Z, ]/" , '' , $dateTimeForFormat ) ;
@@ -26,17 +26,17 @@ class DateTimeHelper
 		return $dateTime ;
 	}
 
-	public static function dateRefill ( $dateTimeForFormat )
+	public function dateRefill ( $dateTimeForFormat )
 	{
 
 		$dateTime = preg_replace ( "/[A-Z, ]/" , '' , $dateTimeForFormat ) ;
 		return $dateTime ;
 	}
 
-	public static function dateDifferenceUntilToday ( $date )
+	public function dateDifferenceUntilToday ( $date )
 	{
 		$now		 = new \DateTime ( date ( 'Y-m-d' ) ) ;
-		$dateGiven	 = new \DateTime ( self::convertTextToFormattedDateTime ( $date , "Y-m-d" ) ) ;
+		$dateGiven	 = new \DateTime ( $this -> convertTextToFormattedDateTime ( $date , "Y-m-d" ) ) ;
 
 		$dateDifference = date_diff ( $dateGiven , $now ) ;
 
