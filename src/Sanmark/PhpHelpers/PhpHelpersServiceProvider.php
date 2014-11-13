@@ -11,6 +11,14 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
+	public function boot()
+	{
+		$this->package('sanmark/php-helpers');
+
+		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+		$loader->alias('Sanmark\PhpHelpers\ArrayHelper', 'Sanmark\PhpHelpers\Facades\ArrayHelperFacade');
+	}
+
 	/**
 	 * Register the service provider.
 	 *
@@ -18,7 +26,10 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app['Sanmark\PhpHelpers\ArrayHelper'] = $this -> app -> share( function ($app)
+		{
+			return new Classes\ArrayHelper;
+		});
 	}
 
 	/**
