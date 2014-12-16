@@ -18,6 +18,7 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 		$aliasLoader = \Illuminate\Foundation\AliasLoader::getInstance();
 
 		$aliasLoader -> alias('Sanmark\PhpHelpers\ArrayHelper', 'Sanmark\PhpHelpers\Facades\ArrayHelperFacade');
+		$aliasLoader -> alias('Sanmark\PhpHelpers\BooleanHelper', 'Sanmark\PhpHelpers\Facades\BooleanHelperFacade');
 		$aliasLoader -> alias('Sanmark\PhpHelpers\DateTimeHelper', 'Sanmark\PhpHelpers\Facades\DateTimeHelperFacade');
 		$aliasLoader -> alias('Sanmark\PhpHelpers\NullHelper', 'Sanmark\PhpHelpers\Facades\NullHelperFacade');
 		$aliasLoader -> alias('Sanmark\PhpHelpers\NumberHelper', 'Sanmark\PhpHelpers\Facades\NumberHelperFacade');
@@ -35,6 +36,11 @@ class PhpHelpersServiceProvider extends ServiceProvider {
 		$this->app['Sanmark\PhpHelpers\ArrayHelper'] = $this -> app -> share( function ($app)
 		{
 			return new Classes\ArrayHelper;
+		});
+
+		$this->app['Sanmark\PhpHelpers\BooleanHelper'] = $this -> app -> share( function ($app)
+		{
+			return new Classes\BooleanHelper;
 		});
 
 		$this->app['Sanmark\PhpHelpers\DateTimeHelper'] = $this -> app -> share( function ($app)
