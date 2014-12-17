@@ -1,6 +1,6 @@
 {
     "name": "sanmark/php-helpers",
-    "description": "",
+    "description": "A collection of small helper methods.",
     "authors": [
         {
             "name": "Sanmark",
