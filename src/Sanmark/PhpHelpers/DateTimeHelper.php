@@ -43,5 +43,10 @@ namespace Sanmark\PhpHelpers
 			return $dateDifference -> days ;
 		}
 
+		public static function isValidDateTime($date, $format = 'Y-m-d H:i:s')
+		{
+			$d = \DateTime::createFromFormat($format, $date);
+			return $d && $d->format($format) == $date;
+		}
 	}
 }
