@@ -56,7 +56,7 @@ namespace Sanmark\PhpHelpers
 
 		public static function ifNullEmptyOrWhitespace ( $valueOne , $valueTwo )
 		{
-			if ( $this -> isNullEmptyOrWhitespace ( $valueOne ) )
+			if ( self::isNullEmptyOrWhitespace ( $valueOne ) )
 			{
 				return $valueTwo ;
 			}

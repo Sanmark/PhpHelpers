@@ -102,7 +102,7 @@ namespace Sanmark\PhpHelpers
 		{
 			if ( ! is_null ( $except ) )
 			{
-				$arrayWithoutExceptElements = $this -> without ( $array , $except ) ;
+				$arrayWithoutExceptElements = self::without ( $array , $except ) ;
 			} else
 			{
 				$arrayWithoutExceptElements = $array ;
@@ -131,13 +131,13 @@ namespace Sanmark\PhpHelpers
 
 		public static function withoutRecursive ( array $array , array $excepts )
 		{
-			$array = $this -> without ( $array , $excepts ) ;
+			$array = self::without ( $array , $excepts ) ;
 
 			foreach ( $array as $key => $value )
 			{
 				if ( is_array ( $value ) )
 				{
-					$array[ $key ] = $this -> withoutRecursive ( $value , $excepts ) ;
+					$array[ $key ] = self::withoutRecursive ( $value , $excepts ) ;
 				}
 			}
 
@@ -151,7 +151,7 @@ namespace Sanmark\PhpHelpers
 				if ( ! is_array ( $value ) && ! NullHelper::isNullEmptyOrWhitespace ( $value ) )
 				{
 					return TRUE ;
-				} elseif ( is_array ( $value ) && $this -> hasAtLeastOneElementWithValueInAtLeastOneChildArrayRecursive ( $value ) )
+				} elseif ( is_array ( $value ) && self::hasAtLeastOneElementWithValueInAtLeastOneChildArrayRecursive ( $value ) )
 				{
 					return TRUE ;
 				}
@@ -181,7 +181,7 @@ namespace Sanmark\PhpHelpers
 			{
 				if ( is_array ( $value ) )
 				{
-					$processedArray[ $key ] = $this -> removeWhiteSpacesInValuesRecursive ( $value ) ;
+					$processedArray[ $key ] = self::removeWhiteSpacesInValuesRecursive ( $value ) ;
 				} else
 				{
 					$processedArray[ $key ] = StringHelper::removeWhiteSpaces ( $value ) ;

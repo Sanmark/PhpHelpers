@@ -36,7 +36,7 @@ namespace Sanmark\PhpHelpers
 		public static function dateDifferenceUntilToday ( $date )
 		{
 			$now		 = new \DateTime ( date ( 'Y-m-d' ) ) ;
-			$dateGiven	 = new \DateTime ( $this -> convertTextToFormattedDateTime ( $date , "Y-m-d" ) ) ;
+			$dateGiven	 = new \DateTime ( self::convertTextToFormattedDateTime ( $date , "Y-m-d" ) ) ;
 
 			$dateDifference = date_diff ( $dateGiven , $now ) ;
 
