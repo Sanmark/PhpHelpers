@@ -48,5 +48,15 @@ namespace Sanmark\PhpHelpers
 			$d = \DateTime::createFromFormat($format, $date);
 			return $d && $d->format($format) == $date;
 		}
+
+		public static function nullIfInvalidDateTime($date, $format = 'Y-m-d H:i:s')
+		{
+			if(self::isValidDateTime($date, $format))
+			{
+				return $date;
+			}
+
+			return NULL;
+		}
 	}
 }
