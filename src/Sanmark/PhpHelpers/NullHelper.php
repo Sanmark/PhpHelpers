@@ -31,11 +31,6 @@ namespace Sanmark\PhpHelpers
 				return TRUE ;
 			}
 
-			if ( empty ( $value ) )
-			{
-				return TRUE ;
-			}
-
 			if ( strlen ( trim ( $value ) ) == 0 )
 			{
 				return TRUE ;
