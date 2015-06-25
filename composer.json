@@ -1,6 +1,7 @@
 {
     "name": "sanmark/php-helpers",
     "description": "A collection of small helper methods.",
+    "license": "MIT",
     "authors": [
         {
             "name": "Sanmark",
@@ -8,7 +9,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "ext-imagick": "*"
     },
     "autoload": {
         "psr-0": {
