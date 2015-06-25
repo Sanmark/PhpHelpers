@@ -13,6 +13,15 @@ namespace Sanmark\PhpHelpers
 			return $finfoMimeType -> buffer ( $blob ) ;
 		}
 
+		public static function getFormat ( $blob )
+		{
+			$mimeType			 = self::getMimeType ( $blob ) ;
+			$mimeTypeExploded	 = explode ( '/' , $mimeType ) ;
+			$format				 = $mimeTypeExploded[ 1 ] ;
+
+			return $format ;
+		}
+
 	}
 
 }
