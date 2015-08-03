@@ -13,9 +13,8 @@ namespace Sanmark\PhpHelpers
 
 			return $spacesRemovedString ;
 		}
-	}
 
-	public static function genRandom ( $length = 10 )
+		public static function genRandom ( $length = 10 )
 		{
 			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' ;
 
@@ -30,4 +29,5 @@ namespace Sanmark\PhpHelpers
 
 			return $randomString ;
 		}
+	}
 }
