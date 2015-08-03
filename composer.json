@@ -1,6 +1,7 @@
 {
     "name": "sanmark/php-helpers",
     "description": "A collection of small helper methods.",
+    "license": "MIT",
     "authors": [
         {
             "name": "Sanmark",

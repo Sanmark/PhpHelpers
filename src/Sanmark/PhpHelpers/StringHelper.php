@@ -4,7 +4,7 @@ namespace Sanmark\PhpHelpers
 {
 	class StringHelper
 	{
-		public function removeWhiteSpaces ( $string )
+		public static function removeWhiteSpaces ( $string )
 		{
 
 			$leftRightTrim		 = ltrim ( $string , ' ' ) ;
