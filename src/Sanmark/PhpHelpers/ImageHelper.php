@@ -6,7 +6,7 @@ namespace Sanmark\PhpHelpers
 	class ImageHelper
 	{
 
-		public static function convertBlobToBlob ( $inputBlob , $expectedWidth , $fromFormat , $toFormat )
+		public static function convertBlobToBlob ( $inputBlob , $expectedWidth , $fromFormat , $toFormat, $compressionQuality = 20 )
 		{
 			try
 			{
@@ -15,6 +15,7 @@ namespace Sanmark\PhpHelpers
 				$im -> setformat ( $fromFormat ) ;
 				$im -> readimageblob ( $inputBlob ) ;
 				$im -> setformat ( $toFormat ) ;
+				$im -> setimagecompressionquality ( $compressionQuality );
 				$im -> resizeimage ( $expectedWidth , null , \imagick::FILTER_LANCZOS , 1 ) ;
 
 				return $im -> getimageblob () ;
