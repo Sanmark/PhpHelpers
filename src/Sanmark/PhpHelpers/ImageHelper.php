@@ -64,6 +64,19 @@ namespace Sanmark\PhpHelpers
 			}
 		}
 
+		public function save ( $path , $inputBlob , $expectedWidth , $fromFormat , $toFormat , $compressionQuality = 20 )
+		{
+			$im = new \Imagick() ;
+
+			$im -> setformat ( $fromFormat ) ;
+			$im -> readimageblob ( $inputBlob ) ;
+			$im -> setformat ( $toFormat ) ;
+			$im -> setimagecompressionquality ( $compressionQuality ) ;
+			$im -> resizeimage ( $expectedWidth , null , \imagick::FILTER_LANCZOS , 1 ) ;
+
+			$im -> writeimage ( $path ) ;
+		}
+
 	}
 
 }
